@@ -18,7 +18,7 @@ form(RegisterForm::class, 'registerForm');
 form(LoginForm::class, 'loginForm');
 
 state([
-    'selectedTab' => fn() => 'register'
+    'selectedTab' => fn() => 'login'
 ])->url('tab');
 
 $register = function () {
