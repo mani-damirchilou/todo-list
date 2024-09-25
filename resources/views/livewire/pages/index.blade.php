@@ -48,7 +48,7 @@ $delete = function (Todo $todo){
             </div>
         </x-form>
         <x-hr/>
-        @foreach($todos as $todo)
+        @forelse($todos as $todo)
             <x-list-item :item="$todo">
                 <x-slot:avatar>
                     <x-checkbox :checked="boolval($todo->completed)" wire:change="complete({{$todo}})"/>
@@ -60,7 +60,9 @@ $delete = function (Todo $todo){
                     <x-button wire:click="delete({{$todo}})" icon="o-trash" class="bg-base-300 text-error btn-ghost"/>
                 </x-slot:actions>
             </x-list-item>
-        @endforeach
+        @empty
+            <h1 class="text-center">@lang('pages.index.empty')</h1>
+        @endforelse
         @if($todos->hasPages())
             <x-hr/>
         @endif
