@@ -188,7 +188,8 @@ return [
         'password' => 'رمز عبور',
         'password_confirmation' => 'تاییدیه رمز عبور',
         'phone_number' => 'شماره تلفن',
-        'remember' => 'منو فراموش نکن'
+        'remember' => 'منو فراموش نکن',
+        'title' => 'عنوان'
     ],
 
 ];
