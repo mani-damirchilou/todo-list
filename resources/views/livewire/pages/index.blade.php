@@ -48,18 +48,21 @@ $delete = function (Todo $todo){
             </div>
         </x-form>
         <x-hr/>
+        <ul x-sort>
         @forelse($todos as $todo)
-            <x-list-item :item="$todo">
-                <x-slot:avatar>
-                    <x-checkbox :checked="boolval($todo->completed)" wire:change="complete({{$todo}})"/>
-                </x-slot:avatar>
-                <x-slot:value @class(['line-through' => $todo->completed])>
-                    {{$todo->title}}
-                </x-slot:value>
-                <x-slot:actions>
-                    <x-button wire:click="delete({{$todo}})" icon="o-trash" class="bg-base-300 text-error btn-ghost"/>
-                </x-slot:actions>
-            </x-list-item>
+            <li x-sort:item>
+                <x-list-item :item="$todo">
+                    <x-slot:avatar>
+                        <x-checkbox :checked="boolval($todo->completed)" wire:change="complete({{$todo}})"/>
+                    </x-slot:avatar>
+                    <x-slot:value @class(['line-through' => $todo->completed])>
+                        {{$todo->title}}
+                    </x-slot:value>
+                    <x-slot:actions>
+                        <x-button wire:click="delete({{$todo}})" icon="o-trash" class="bg-base-300 text-error btn-ghost"/>
+                    </x-slot:actions>
+                </x-list-item>
+            </li>
         @empty
             <h1 class="text-center">@lang('pages.index.empty')</h1>
         @endforelse
